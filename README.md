@@ -1,2 +1,2 @@
-# Overwatch Game Mode
+# Overwatch Game Modes
 
