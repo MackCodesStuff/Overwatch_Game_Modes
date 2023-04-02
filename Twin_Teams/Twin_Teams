@@ -9,6 +9,8 @@ settings
 	lobby
 	{
 		Allow Players Who Are In Queue: Yes
+		Max Team 1 Players: 3
+		Max Team 2 Players: 3
 		Pause Game On Player Disconnect: Yes
 	}
 
@@ -135,7 +137,7 @@ rule("Start Select - 0")
 	conditions
 	{
 		Is Game In Progress == True;
-		Global.slot_0_hero != Null;
+		disabled Global.slot_0_hero != Null;
 	}
 
 	actions
@@ -191,11 +193,11 @@ rule("Death Select - 0")
 				Opposite Team Of(Team Of(Event Player))));
 			"start forcing the player on the other team's slot to the event player's new hero"
 			Start Forcing Player To Be Hero(Players In Slot(0, Opposite Team Of(Team Of(Event Player))), Global.slot_0_hero);
-			"pause REQUIRED. ult charge will not update properly without it"
-			Wait(1, Ignore Condition);
 			"multiply new hero health by the percent of the previous health, add one to prevent accidentally dying from character swap"
 			Set Player Health(Players In Slot(0, Opposite Team Of(Team Of(Event Player))), Players In Slot(0, Opposite Team Of(Team Of(
 				Event Player))).health_percent * Max Health(Players In Slot(0, Opposite Team Of(Team Of(Event Player)))) + 1);
+			"pause REQUIRED. ult charge will not update properly without it"
+			Wait(1, Ignore Condition);
 			"set ultimate charge, living player retains 80% of their previous charge"
 			Set Ultimate Charge(Players In Slot(0, Opposite Team Of(Team Of(Event Player))), Players In Slot(0, Opposite Team Of(Team Of(
 				Event Player))).ult_percent * 0.800);
@@ -215,7 +217,7 @@ rule("Start Select - 1")
 	conditions
 	{
 		Is Game In Progress == True;
-		Global.slot_1_hero != Null;
+		disabled Global.slot_1_hero != Null;
 	}
 
 	actions
@@ -271,11 +273,11 @@ rule("Death Select - 1")
 				Opposite Team Of(Team Of(Event Player))));
 			"start forcing the player on the other team's slot to the event player's new hero"
 			Start Forcing Player To Be Hero(Players In Slot(1, Opposite Team Of(Team Of(Event Player))), Global.slot_1_hero);
-			"pause REQUIRED. ult charge will not update properly without it"
-			Wait(1, Ignore Condition);
 			"multiply new hero health by the percent of the previous health, add one to prevent accidentally dying from character swap"
 			Set Player Health(Players In Slot(1, Opposite Team Of(Team Of(Event Player))), Players In Slot(1, Opposite Team Of(Team Of(
 				Event Player))).health_percent * Max Health(Players In Slot(1, Opposite Team Of(Team Of(Event Player)))) + 1);
+			"pause REQUIRED. ult charge will not update properly without it"
+			Wait(1, Ignore Condition);
 			"set ultimate charge, living player retains 80% of their previous charge"
 			Set Ultimate Charge(Players In Slot(1, Opposite Team Of(Team Of(Event Player))), Players In Slot(1, Opposite Team Of(Team Of(
 				Event Player))).health_percent * 0.800);
@@ -295,7 +297,7 @@ rule("Start Select - 2")
 	conditions
 	{
 		Is Game In Progress == True;
-		Global.slot_2_hero != Null;
+		disabled Global.slot_2_hero != Null;
 	}
 
 	actions
@@ -351,11 +353,11 @@ rule("Death Select - 2")
 				Opposite Team Of(Team Of(Event Player))));
 			"start forcing the player on the other team's slot to the event player's new hero"
 			Start Forcing Player To Be Hero(Players In Slot(2, Opposite Team Of(Team Of(Event Player))), Global.slot_2_hero);
-			"pause REQUIRED. ult charge will not update properly without it"
-			Wait(1, Ignore Condition);
 			"multiply new hero health by the percent of the previous health, add one to prevent accidentally dying from character swap"
 			Set Player Health(Players In Slot(2, Opposite Team Of(Team Of(Event Player))), Players In Slot(2, Opposite Team Of(Team Of(
 				Event Player))).health_percent * Max Health(Players In Slot(2, Opposite Team Of(Team Of(Event Player)))) + 1);
+			"pause REQUIRED. ult charge will not update properly without it"
+			Wait(1, Ignore Condition);
 			"set ultimate charge, living player retains 80% of their previous charge"
 			Set Ultimate Charge(Players In Slot(2, Opposite Team Of(Team Of(Event Player))), Players In Slot(2, Opposite Team Of(Team Of(
 				Event Player))).health_percent * 0.800);
@@ -375,7 +377,7 @@ rule("Start Select - 3")
 	conditions
 	{
 		Is Game In Progress == True;
-		Global.slot_3_hero != Null;
+		disabled Global.slot_3_hero != Null;
 	}
 
 	actions
@@ -431,11 +433,11 @@ rule("Death Select - 3")
 				Opposite Team Of(Team Of(Event Player))));
 			"start forcing the player on the other team's slot to the event player's new hero"
 			Start Forcing Player To Be Hero(Players In Slot(3, Opposite Team Of(Team Of(Event Player))), Global.slot_3_hero);
-			"pause REQUIRED. ult charge will not update properly without it"
-			Wait(1, Ignore Condition);
 			"multiply new hero health by the percent of the previous health, add one to prevent accidentally dying from character swap"
 			Set Player Health(Players In Slot(3, Opposite Team Of(Team Of(Event Player))), Players In Slot(3, Opposite Team Of(Team Of(
 				Event Player))).health_percent * Max Health(Players In Slot(3, Opposite Team Of(Team Of(Event Player)))) + 1);
+			"pause REQUIRED. ult charge will not update properly without it"
+			Wait(1, Ignore Condition);
 			"set ultimate charge, living player retains 80% of their previous charge"
 			Set Ultimate Charge(Players In Slot(3, Opposite Team Of(Team Of(Event Player))), Players In Slot(3, Opposite Team Of(Team Of(
 				Event Player))).health_percent * 0.800);
@@ -455,7 +457,7 @@ rule("Start Select - 4")
 	conditions
 	{
 		Is Game In Progress == True;
-		Global.slot_4_hero != Null;
+		disabled Global.slot_4_hero != Null;
 	}
 
 	actions
@@ -511,11 +513,11 @@ rule("Death Select - 4")
 				Opposite Team Of(Team Of(Event Player))));
 			"start forcing the player on the other team's slot to the event player's new hero"
 			Start Forcing Player To Be Hero(Players In Slot(4, Opposite Team Of(Team Of(Event Player))), Global.slot_4_hero);
-			"pause REQUIRED. ult charge will not update properly without it"
-			Wait(1, Ignore Condition);
 			"multiply new hero health by the percent of the previous health, add one to prevent accidentally dying from character swap"
 			Set Player Health(Players In Slot(4, Opposite Team Of(Team Of(Event Player))), Players In Slot(4, Opposite Team Of(Team Of(
 				Event Player))).health_percent * Max Health(Players In Slot(4, Opposite Team Of(Team Of(Event Player)))) + 1);
+			"pause REQUIRED. ult charge will not update properly without it"
+			Wait(1, Ignore Condition);
 			"set ultimate charge, living player retains 80% of their previous charge"
 			Set Ultimate Charge(Players In Slot(4, Opposite Team Of(Team Of(Event Player))), Players In Slot(4, Opposite Team Of(Team Of(
 				Event Player))).health_percent * 0.800);
